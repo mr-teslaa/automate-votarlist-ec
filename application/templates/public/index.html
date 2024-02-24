@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+	<div class="container my-3">
+		<div class="mb-3">
+			<h1 class="fs-3">Upload your txt file</h1>
+		</div>
+		<form action="/upload" method="post" enctype="multipart/form-data">
+			<div class="row">
+				<div class="col-3 mb-3">
+					<input type="file" class="form-control" name="file" accept=".txt" required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3 mb-3">
+					<button type="submit" class="btn btn-primary">Upload</button>
+				</div>
+			</div>
+		</form>
+	</div>
+    
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+	<div class="container">
+		<div class="mt-5 pt-5 mb-2">
+			<div>
+				<p>
+					.TXT file format should be like this <a href="{{ url_for('static', filename='votarlist.txt') }}">votar.txt</a> 
+				</p>
+			</div>
+			<div class="d-flex">
+				<p>
+					Developed by 
+					<a href="http://hossainfoysal.com">Hossain Foysal</a>
+				</p>
+				<p class="ps-2">
+					Hosted at 
+					<a href="http://binomatrix.com">BinoMatrix.com</a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<scirpt src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></scirpt>
+</body>
+</html>
